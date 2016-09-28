@@ -1,62 +1,104 @@
 // Resets, Clearfix, etc
 @import "partials/clearfix";
 @import "partials/reset";
+
 // Variables
-$darkColor: black;
-$lightColor: white;
-$brightColor: orange;
+$darkColor: gray;
+$lightColor: blue;
+$brightColor: yellow;
 $padding: 10px;
 
 // Mixins
 @mixin bodyBackground($color) {
   background-color: $color;
 }
+
+@mixin listBlock($fontColor){
+  font-size: 35px;
+  color: $fontColor;
+}
+
+@mixin h1Font($color){
+  font-size: 55px;
+  color: $color;
+}
+
+//Media Query
+@media screen and (min-width: 600px){
+  body {
+    @include bodyBackground($brightColor);
+  }
+  h1, h2, h3, h4{
+    @include listBlock($brightColor);
+  }
+  h1 {
+    @include h1Font($lightColor);
+  }
+  .block_family{
+    max-width: 550px;
+
+  }
+  .block_family li{
+    background-color: $lightColor;
+    display:inline-block;
+    width: 195px;
+    height: 35px;
+  }
+}
+@media screen and (min-width: 900px){
+  body {
+    @include bodyBackground($darkColor);
+  }
+  h1, h2, h3, h4{
+    @include listBlock($darkColor);
+  }
+  h1{
+    @include h1Font($brightColor);
+  }
+  .block_family{
+    max-width: 800px;
+  }
+  .block_family li{
+    background-color: $brightColor;
+    display:inline-block;
+    width: 200px;
+  }
+}
+@media screen and (max-width: 600px){
+  body {
+    @include bodyBackground($brightColor);
+  }
+  h1, h2, h3, h4{
+    @include listBlock($lightColor);
+  }
+  h1 {
+    @include h1Font($darkColor);
+  }
+  .block_family{
+    max-width: 350px;
+  }
+  .block_family li{
+    background-color: $darkColor;
+  }
+}
+
+
+
+
+
+
 // Styles
 body{
   text-align: center;
   color: #EEE;
-  // Media Query Ranges
-  @media screen and (min-width: 600px){
-    background-color: $brightColor;
-  }
-  @media screen and (min-width: 900px){
-    background-color: $darkColor;
-  }
-  @media screen and (max-width: 600px){
-    background-color: $brightColor;
-  }
 }
 
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
-  @media screen and (min-width: 600px){
-  font-size: 35px;
-  color: $lightColor;
-  }
-  @media screen and (min-width: 900px){
-    font-size: 35px;
-    color: $darkColor;
-  }
-  @media screen and (max-width: 600px){
-    font-size: 35px;
-    color: $lightColor;
-  }
 }
 
 h1{
   padding: 20px;
-  @media screen and (min-width: 600px){
-    font-size: 55px;
-    color: $lightColor;
-  }
-  @media screen and (min-width: 900px){
-    font-size: 55px;
-    color: $brightColor;
-  }
-  @media screen and (max-width: 600px){
-    font-size: 55px;
-    color: $darkColor;
-  }
 }
 
 h2{
@@ -65,31 +107,11 @@ h2{
 
 
 .block_family{
-  max-width:350px;
   margin:auto;
-  @media screen and (min-width: 600px){
-    max-width: 75%;
-  }
-  @media screen and (min-width: 900px){
-    max-width: 75%;
-  }
-  @media screen and (max-width: 600px){
-    max-width: 75%;
-  }
 }
 
 .block_family li{
-  background-color: #222;
-  margin-bottom: 20px;
-  padding: 20px;
-  @media screen and (min-width: 600px){
-    color: $brightColor;
-    background-color: $lightColor;
-  }
-  @media screen and (min-width: 900px){
-    background-color: $brightColor;
-  }
-  @media screen and (max-width: 600px){
-    background-color: $darkColor;
-  }
+  margin: 5px;
+  padding: 25px;
+
 }
