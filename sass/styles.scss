@@ -1,38 +1,95 @@
 // Resets, Clearfix, etc
-
+@import "partials/clearfix";
+@import "partials/reset";
 // Variables
- 
-// Media Query Ranges 
- 
-// Mixins
+$darkColor: black;
+$lightColor: white;
+$brightColor: orange;
+$padding: 10px;
 
+// Mixins
+@mixin bodyBackground($color) {
+  background-color: $color;
+}
 // Styles
 body{
-  background-color: orange;
   text-align: center;
   color: #EEE;
+  // Media Query Ranges
+  @media screen and (min-width: 600px){
+    background-color: $brightColor;
+  }
+  @media screen and (min-width: 900px){
+    background-color: $darkColor;
+  }
+  @media screen and (max-width: 600px){
+    background-color: $brightColor;
+  }
 }
- 
+
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  @media screen and (min-width: 600px){
+  font-size: 35px;
+  color: $lightColor;
+  }
+  @media screen and (min-width: 900px){
+    font-size: 35px;
+    color: $darkColor;
+  }
+  @media screen and (max-width: 600px){
+    font-size: 35px;
+    color: $lightColor;
+  }
 }
- 
+
 h1{
   padding: 20px;
+  @media screen and (min-width: 600px){
+    font-size: 55px;
+    color: $lightColor;
+  }
+  @media screen and (min-width: 900px){
+    font-size: 55px;
+    color: $brightColor;
+  }
+  @media screen and (max-width: 600px){
+    font-size: 55px;
+    color: $darkColor;
+  }
 }
- 
+
 h2{
- 
+
 }
- 
- 
+
+
 .block_family{
   max-width:350px;
   margin:auto;
+  @media screen and (min-width: 600px){
+    max-width: 75%;
+  }
+  @media screen and (min-width: 900px){
+    max-width: 75%;
+  }
+  @media screen and (max-width: 600px){
+    max-width: 75%;
+  }
 }
- 
+
 .block_family li{
   background-color: #222;
   margin-bottom: 20px;
   padding: 20px;
+  @media screen and (min-width: 600px){
+    color: $brightColor;
+    background-color: $lightColor;
+  }
+  @media screen and (min-width: 900px){
+    background-color: $brightColor;
+  }
+  @media screen and (max-width: 600px){
+    background-color: $darkColor;
+  }
 }
